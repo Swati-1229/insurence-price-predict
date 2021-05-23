@@ -11,7 +11,7 @@ with open(Pkl_Filename, 'rb') as file:
 @app.route('/')
 
 def hello_world():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST','GET'])
 def predict():
@@ -25,9 +25,9 @@ def predict():
 
     
     if pred < 0:
-        return render_template('op.html', pred='Error calculating Amount!')
+        return render_template('index.html', pred='Error calculating Amount!')
     else:
-        return render_template('op.html', pred='Expected amount is {0:.3f}'.format(pred))
+        return render_template('index.html', pred='Expected amount is {0:.3f}'.format(pred))
 
 if __name__ == '__main__':
     app.run(debug=True)
